@@ -97,7 +97,7 @@ pipeline {
         sh "sed -i 's@${dockerHubRegistry}:.*@${dockerHubRegistry}:${currentBuild.number}@g' deploy/sb-deploy.yml"
         sh "sed -i 's@${dockerHubRegistry}:.*@${dockerHubRegistry2}:${currentBuild.number}@g' deploy/mario.yml"
         sh "git add ."
-        sh "git commit -m 'fix:${dockerHubRegistry} ${currentBuild.number} image versioning'"
+        sh "git commit -m 'fix:${dockerHubRegistry} & ${dockerHubRegistry2} ${currentBuild.number} image versioning'"
         sh "git branch -M main"
         sh "git remote remove origin"
         sh "git remote add origin ${gitSshaddress}"
