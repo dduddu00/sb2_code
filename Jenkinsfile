@@ -11,7 +11,7 @@ pipeline {
     gitWebaddress = 'https://github.com/dduddu00/sb2_code.git'
     gitSshaddress = 'git@github.com:dduddu00/sb2_code.git'
     gitCredential = 'git_cre' //git Credential 생성시의 ID
-    dockerHubRegistry = 'pengbai/docker-supermario' 
+    dockerHubRegistry = 'choisooyeon/sbimage' 
     dockerHubRegistryCredential = 'docker_cre' // dcker Credential 생성시의 ID
   }
 
