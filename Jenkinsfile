@@ -8,8 +8,8 @@ pipeline {
   environment  {
     gitName = 'dduddu00'
     gitEmail = 'tndusdlsms@nate.com'
-    gitWebaddress = 'https://github.com/dduddu00/sb_code.git'
-    gitSshaddress = 'git@github.com:dduddu00/sb_code.git'
+    gitWebaddress = 'https://github.com/dduddu00/sb2_code.git'
+    gitSshaddress = 'git@github.com:dduddu00/sb2_code.git'
             //위 주소 두 개는 git에서 초록색 code 누르면 나옴 (HTTPS, SSH)
     gitCredential = 'git_cre' //git Credential 생성시의 ID
     dockerHubRegistry = 'pengbai/docker-supermario' 
