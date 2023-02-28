@@ -51,7 +51,7 @@ pipeline {
             sh "docker build -t ${dockerHubRegistry}:${currentBuild.number} ."
             sh "docker build -t ${dockerHubRegistry}:latest ."
             sh "docker build -t ${dockerHubRegistry2}:${currentBuild.number} ."
-            sh "docker build -t ${dockerHubRegistry2}:latest ."
+            sh "docker build -t ${dockerHubRegistry2}:latest -f Dockerfile2  ."
         }
         post {
             failure {
@@ -67,6 +67,8 @@ pipeline {
             withDockerRegistry(credentialsId: dockerHubRegistryCredential, url: '') {
             sh "docker push ${dockerHubRegistry}:${currentBuild.number}"
             sh "docker push ${dockerHubRegistry}:latest"
+            sh "docker push ${dockerHubRegistry2}:${currentBuild.number}"
+            sh "docker push ${dockerHubRegistry2}:latest"
           }
 
         }
@@ -93,6 +95,7 @@ pipeline {
         sh "git config --global user.email ${gitEmail}"
         sh "git config --global user.name ${gitName}"
         sh "sed -i 's@${dockerHubRegistry}:.*@${dockerHubRegistry}:${currentBuild.number}@g' deploy/sb-deploy.yml"
+        sh "sed -i 's@${dockerHubRegistry}:.*@${dockerHubRegistry2}:${currentBuild.number}@g' deploy/mario.yml"
         sh "git add ."
         sh "git commit -m 'fix:${dockerHubRegistry} ${currentBuild.number} image versioning'"
         sh "git branch -M main"
