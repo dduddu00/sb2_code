@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: mario
-          image: choisooyeon/supermario:22
+          image: choisooyeon/supermario:28
 ---
 apiVersion: v1
 kind: Service
