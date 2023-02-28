@@ -14,7 +14,7 @@ pipeline {
     dockerHubRegistry = 'choisooyeon/sbimage' 
     dockerHubRegistryCredential = 'docker_cre' // dcker Credential 생성시의 ID
   }
-  stages {
+ stages {
     stage('Checkout Github') {
         steps {
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: gitCredential, url: gitWebaddress]]])
@@ -63,5 +63,4 @@ pipeline {
         }
     }
     }
-}
 }
