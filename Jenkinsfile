@@ -51,7 +51,7 @@ pipeline {
             sh "docker build -t ${dockerHubRegistry}:${currentBuild.number} ."
             sh "docker build -t ${dockerHubRegistry}:latest ."
             sh "docker build -t ${dockerHubRegistry2}:${currentBuild.number} -f Dockerfile2 ."
-            sh "docker build -t ${dockerHubRegistry2}:latest -f Dockerfile2  ."
+            sh "docker build -t ${dockerHubRegistry2}:latest -f Dockerfile2 ."
         }
         post {
             failure {
