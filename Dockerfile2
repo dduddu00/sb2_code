@@ -1,1 +1,1 @@
-FROM pengbai/supermario:latest
+FROM pengbai/docker-supermario:latest
