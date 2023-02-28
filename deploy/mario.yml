@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ma-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mario
+  template:
+    metadata:
+      labels:
+        app: mario
+    spec:
+      containers:
+        - name: mario
+          image: pengbai/docker-supermario
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ma-svc
+spec:
+  selector:
+    app: mario
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
